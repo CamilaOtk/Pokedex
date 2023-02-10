@@ -1,7 +1,9 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { listPokemons } from 'src/app/service/api/pokedex';
 import { IPokemon } from 'src/models/pokemon';
-import {uniqBy}from "lodash";
+import { uniqBy } from 'lodash';
+import { HeaderComponent } from './Components/Header/header.components';
+import { DetailsComponent } from './Components/details/details.components';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +12,38 @@ import {uniqBy}from "lodash";
 })
 export class AppComponent {
   title: string = 'Pokedex';
-  pokeList: IPokemon [] = [];
-  @Input () name = "";
-
+  pokeList: IPokemon[] = [];
+  // @Input () name = "";
+  // @Input () number = "";
 
   ngOnInit() {
     this.getPokemons();
-    
   }
 
-  onConsole(value: any){
-    console.log('value', value)
+  onConsole(value: any) {
+    console.log('value', value);
   }
 
-  async getPokemons() {
+  async getPokemons(search?: string) {
     const response = await listPokemons();
-    console.log('response', response)
-    if (response.status === 200 )
-    this.pokeList = uniqBy(response.data, "id");
-    console.log('pokeList', this.pokeList);
+    if (response.status === 200)
+      this.pokeList = uniqBy(
+        response.data?.filter(
+          (item) =>
+            item.name
+              .toLowerCase()
+              .includes(search?.toLowerCase() || item.name.toLowerCase()) ||
+            item.number.includes(search ?? item.number)
+        ),
+        'id'
+      );
+    // this.pokeList = uniqBy(response.data?.filter(item => item.number.toLowerCase().includes(search?.toLowerCase() || item.number.toLowerCase())), "id");
   }
 
-  
+  // @Output() onGetPokemons: EventEmitter<any> = new EventEmitter<any>();
+
+  onClickItem(event: any): void {
+    console.log('passou aqui', event);
+    // this.onGetPokemons.emit({DetailsComponent});
+  }
 }

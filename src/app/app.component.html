@@ -1,39 +1,30 @@
 <div class="w-full h-full">
   <!-- header -->
-  <div class="justify-between flex items-center w-full py-5 relative z-50">
-    <div></div>
-    <div class="flex">
-      <img
-        src="assets/pokemon.png "
-        alt="Pokedéx"
-        style="margin-right: 50px; height: 10vh"
-      />
-      <input id="inputSearch" type="text" placeholder="  Pesquisar..." />
-    </div>
-    <div>
-     </div>
-  </div>
+  <app-header (onSearchPokemon)="getPokemons($event)"> </app-header>
 
   <!-- apartir daqui vou mostrar meus resultados -->
 
   <div class="content-container">
-    <div class="namePokemon" *ngFor="let pokeitem of pokeList; let i = index">
-    
+    <div class="listaPokemon">
+      <div *ngFor="let pokeitem of pokeList; let i = index">
+        <button
+          (click)="onClickItem(pokeitem)"
+          class="itemPokemon"
+        >
+          <img
+            [src]="pokeitem.ThumbnailImage"
+            height="200"
+            width="200"
+            alt="Imagem Pokemon"
+            class="mr20"
+          />
 
-    </div>
+          <!-- <img src= "C:\Users\camil\OneDrive\Área de Trabalho\Projetos\Pokedex\Pokedex\src\assets\backgroud.png" class = "img1"> -->
 
-
-    <div class="ListaPokemon" *ngFor="let pokeitem of pokeList; let i = index">
-      <img
-        [src]="pokeitem.ThumbnailImage"
-        height="200"
-        width="200"
-        alt="Imagem Pokemon"
-        class="mr20"
-        
-      />
-      <p class="text-name">{{pokeitem.name}}</p>
-
+          <p class="text-name">{{ pokeitem.name }}</p>
+          <p class="text-number">{{ pokeitem.number }}</p>
+        </button>
+      </div>
     </div>
   </div>
 </div>

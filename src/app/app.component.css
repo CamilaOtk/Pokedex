@@ -1,13 +1,8 @@
-#inputSearch{
-    border-radius: 30px;
-    width: 75vh;
-    height: 6vh;
-    margin-top: 10px;
-    padding-left: 20px;
-}
-.flex{
-    background-color: rgb(245, 40, 40);
-}
+
+/* body{
+    background-image: url(C:\Users\camil\Downloads\);
+
+} */
 /* .cardbase{
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
     background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
@@ -23,15 +18,36 @@
 } */
 
 .content-container {
-    align-content: space-between;
-    width: 100%;
-    height: calc(100vh - 78px);
-    display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
+  margin: 0 5rem;
+  background-color: rgba(255, 250, 240, 0.6);
 }
 
-.listaPokemon{
-    margin-top: 1rem;
-    
+.listaPokemon {
+  align-content: space-between;
+  width: 100%;
+  height: calc(100vh - 78px);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 0 7rem;
+  justify-content: center;
+}
+
+.itemPokemon {
+  margin: 1rem;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.33);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(7.6px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.itemPokemon p {
+  font-weight: 600;
+  margin-left: 1rem;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+
 }

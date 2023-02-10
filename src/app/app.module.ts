@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { DetailsComponent } from './Components/details/details.components';
 import { EventosComponent } from './Components/Eventos/eventos.components';
 import { HeaderComponent } from './Components/Header/header.components';
 
@@ -10,6 +11,7 @@ import { HeaderComponent } from './Components/Header/header.components';
     AppComponent,
     EventosComponent,
     HeaderComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule
